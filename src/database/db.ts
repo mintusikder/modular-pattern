@@ -19,8 +19,8 @@ export const initDB = async () => {
       );
     `);
 
-    console.log("✅ Database Connected & Table Ready");
+    console.log("Database Connected & Table Ready");
   } catch (error) {
-    console.error("❌ DB Init Error:", error);
+    console.error("DB Init Error:", error);
   }
 };

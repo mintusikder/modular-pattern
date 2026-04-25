@@ -1,5 +1,7 @@
 import express, { json, Request, Response } from "express";
 import { userRoute } from "./modules/users/user.route";
+import { initDB } from "./database/db";
+
 const app = express();
 app.use(json());
 
@@ -11,6 +13,12 @@ app.get("/", (req: Request, res: Response) => {
     path: req.path,
   });
 });
-app.listen(3000, () => {
-  console.log("server is running on port 3000");
-});
+
+const startServer = async () => {
+  await initDB();
+  app.listen(3000, () => {
+    console.log("server is running on port 3000");
+  });
+};
+
+startServer();
